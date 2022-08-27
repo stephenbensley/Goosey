@@ -1,8 +1,10 @@
 #include "BoardValue.h"
 #include "DiscardSimulator.h"
+#include "GreedyPlayer.h"
 #include "HandVsHand.h"
 #include "Match.h"
 #include "MinimaxPlayer.h"
+#include "RandomPlayer.h"
 #include "ScoreLogger.h"
 #include <charconv>
 #include <fstream>
@@ -108,7 +110,11 @@ int verb_hvh(int argc, char* const argv[])
 
 int verb_match(int argc, char* const argv[])
 {
-   MinimaxPlayer player0, player1;
+   TableDiscarder discarder0("discard.dat");
+   GreedyPlayer player0(discarder0);
+
+   TableDiscarder discarder1("discard.dat");
+   MinimaxPlayer player1(discarder1);
 
    Match match({ &player0, &player1 });
    MatchResults results = match.play(1000, true);
@@ -125,7 +131,8 @@ int verb_scorelog(int argc, char* const argv[])
 {
    const int target_hands = 1'000'000;
 
-   MinimaxPlayer player0, player1;
+   TableDiscarder discarder("discard.dat");
+   MinimaxPlayer player0(discarder), player1(discarder);
    ScoreLogger logger(player0);
 
    Match match({ &logger, &player1 });

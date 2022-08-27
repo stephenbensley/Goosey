@@ -11,31 +11,7 @@ std::unique_ptr<Player> GreedyPlayer::clone() const
 CardsDiscarded GreedyPlayer::get_discards(const GameView& game,
                                           const CardsInHand& hand)
 {
-   CardSplitter splitter(hand.data());
-   // Crib counts for the dealer and against the pone.
-   auto crib_mult = is_dealer(game) ? +1 : -1;
-
-   auto max_points = -1;
-   CardsDiscarded best_cards;
-
-   do  {
-      auto hand_points = score_hand(splitter.hand.begin(),
-                                    splitter.hand.end(),
-                                    nullcard,
-                                    false);
-      auto crib_points = score_hand(splitter.crib.begin(),
-                                    splitter.crib.end(),
-                                    nullcard,
-                                    true);
-      auto points = hand_points + crib_mult * crib_points;
-      if (points > max_points) {
-         max_points = points;
-         best_cards = splitter.crib;
-       }
-   } while (splitter.next());
-
-   assert(max_points >= 0);
-   return best_cards;
+   return discarder_.get_discards(game, hand).crib;
 }
 
 Card GreedyPlayer::get_card_to_play(const GameView& game,
@@ -57,4 +33,9 @@ Card GreedyPlayer::get_card_to_play(const GameView& game,
       }
    }
    return best_card;
+}
+
+void GreedyPlayer::on_set_index(PlayerIndex new_value)
+{
+   discarder_.set_index(new_value);
 }

@@ -56,10 +56,8 @@
 		DC760D61286FAB76002411B9 /* Match.h in Headers */ = {isa = PBXBuildFile; fileRef = DC760D36286FAB38002411B9 /* Match.h */; };
 		DC760D64286FAB85002411B9 /* MinimaxPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = DC760D39286FAB38002411B9 /* MinimaxPlayer.h */; };
 		DC760D65286FAB89002411B9 /* MinimaxPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC760D3A286FAB38002411B9 /* MinimaxPlayer.cpp */; };
-		DC760D67286FAB90002411B9 /* PureDiscardPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC760D3C286FAB38002411B9 /* PureDiscardPlayer.cpp */; };
 		DC760D68286FAB94002411B9 /* RandomPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC760D3D286FAB38002411B9 /* RandomPlayer.cpp */; };
 		DC760D69286FAB96002411B9 /* RandomPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = DC760D3E286FAB38002411B9 /* RandomPlayer.h */; };
-		DC760D6A286FAB9A002411B9 /* PureDiscardPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = DC760D3F286FAB38002411B9 /* PureDiscardPlayer.h */; };
 		DC760D85286FAC4B002411B9 /* CardPlayScoreTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC760D6C286FABD2002411B9 /* CardPlayScoreTest.cpp */; };
 		DC760D86286FAC4E002411B9 /* GameModelTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC760D6D286FABD2002411B9 /* GameModelTest.cpp */; };
 		DC760D87286FB7CC002411B9 /* ScoreTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC760D6F286FABD2002411B9 /* ScoreTest.cpp */; };
@@ -74,6 +72,7 @@
 		DC760DAA2870A84E002411B9 /* libDiscardStrategy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC567C4A286FA96B00791F61 /* libDiscardStrategy.a */; };
 		DC760DAB2870A853002411B9 /* libGameModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC567C04286FA85800791F61 /* libGameModel.a */; };
 		DC760DAC2870A856002411B9 /* libPlayers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC760D52286FAB56002411B9 /* libPlayers.a */; };
+		DC8BD37B28BA870C00DBDAB5 /* Discarder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC8BD37A28BA870C00DBDAB5 /* Discarder.cpp */; };
 		DC90EBAB28831A9E000D0379 /* SizedArrayTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC90EBAA28831A9E000D0379 /* SizedArrayTest.cpp */; };
 		DCA3A8492883573B0026BC22 /* CardPlayHandsTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCA3A8482883573B0026BC22 /* CardPlayHandsTest.cpp */; };
 		DCA3A84A288358440026BC22 /* libCardPlayStrategy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC760D1B286FAA9E002411B9 /* libCardPlayStrategy.a */; };
@@ -198,10 +197,8 @@
 		DC760D36286FAB38002411B9 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Match.h; sourceTree = "<group>"; };
 		DC760D39286FAB38002411B9 /* MinimaxPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinimaxPlayer.h; sourceTree = "<group>"; };
 		DC760D3A286FAB38002411B9 /* MinimaxPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MinimaxPlayer.cpp; sourceTree = "<group>"; };
-		DC760D3C286FAB38002411B9 /* PureDiscardPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PureDiscardPlayer.cpp; sourceTree = "<group>"; };
 		DC760D3D286FAB38002411B9 /* RandomPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RandomPlayer.cpp; sourceTree = "<group>"; };
 		DC760D3E286FAB38002411B9 /* RandomPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomPlayer.h; sourceTree = "<group>"; };
-		DC760D3F286FAB38002411B9 /* PureDiscardPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureDiscardPlayer.h; sourceTree = "<group>"; };
 		DC760D52286FAB56002411B9 /* libPlayers.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPlayers.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC760D6C286FABD2002411B9 /* CardPlayScoreTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CardPlayScoreTest.cpp; sourceTree = "<group>"; };
 		DC760D6D286FABD2002411B9 /* GameModelTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameModelTest.cpp; sourceTree = "<group>"; };
@@ -213,6 +210,8 @@
 		DC760D7E286FAC3C002411B9 /* GooseyTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GooseyTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC760D96286FC12C002411B9 /* Goosey */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Goosey; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC8BD37828BA84B700DBDAB5 /* expectedscores.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = expectedscores.dat; sourceTree = "<group>"; };
+		DC8BD37928BA865B00DBDAB5 /* Discarder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Discarder.h; sourceTree = "<group>"; };
+		DC8BD37A28BA870C00DBDAB5 /* Discarder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Discarder.cpp; sourceTree = "<group>"; };
 		DC90EBAA28831A9E000D0379 /* SizedArrayTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SizedArrayTest.cpp; sourceTree = "<group>"; };
 		DC90EBAC2883237A000D0379 /* PlayerIndex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerIndex.h; sourceTree = "<group>"; };
 		DC90EBAD288327D7000D0379 /* DiscardDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscardDefs.h; sourceTree = "<group>"; };
@@ -401,6 +400,8 @@
 				DC567C37286FA94200791F61 /* DiscardTable.h */,
 				DC4C180E28B7DEB5008D4F09 /* ExpectedScores.h */,
 				DC4C180F28B7E2EF008D4F09 /* ExpectedScores.cpp */,
+				DC8BD37928BA865B00DBDAB5 /* Discarder.h */,
+				DC8BD37A28BA870C00DBDAB5 /* Discarder.cpp */,
 			);
 			path = DiscardStrategy;
 			sourceTree = "<group>";
@@ -429,8 +430,6 @@
 				DC760D36286FAB38002411B9 /* Match.h */,
 				DC760D3A286FAB38002411B9 /* MinimaxPlayer.cpp */,
 				DC760D39286FAB38002411B9 /* MinimaxPlayer.h */,
-				DC760D3C286FAB38002411B9 /* PureDiscardPlayer.cpp */,
-				DC760D3F286FAB38002411B9 /* PureDiscardPlayer.h */,
 				DC760D3D286FAB38002411B9 /* RandomPlayer.cpp */,
 				DC760D3E286FAB38002411B9 /* RandomPlayer.h */,
 			);
@@ -538,7 +537,6 @@
 			files = (
 				DC760D61286FAB76002411B9 /* Match.h in Headers */,
 				DC760D64286FAB85002411B9 /* MinimaxPlayer.h in Headers */,
-				DC760D6A286FAB9A002411B9 /* PureDiscardPlayer.h in Headers */,
 				DC760D5D286FAB67002411B9 /* GreedyPlayer.h in Headers */,
 				DC760D69286FAB96002411B9 /* RandomPlayer.h in Headers */,
 			);
@@ -761,6 +759,7 @@
 				DC4C181028B7E2EF008D4F09 /* ExpectedScores.cpp in Sources */,
 				DC567C55286FA98800791F61 /* DiscardTable.cpp in Sources */,
 				DC567C61286FA9AD00791F61 /* Canonize.cpp in Sources */,
+				DC8BD37B28BA870C00DBDAB5 /* Discarder.cpp in Sources */,
 				DC567C5B286FA99900791F61 /* DiscardAnalyzer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -781,7 +780,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC760D68286FAB94002411B9 /* RandomPlayer.cpp in Sources */,
-				DC760D67286FAB90002411B9 /* PureDiscardPlayer.cpp in Sources */,
 				DC760D60286FAB73002411B9 /* GreedyPlayer.cpp in Sources */,
 				DC760D65286FAB89002411B9 /* MinimaxPlayer.cpp in Sources */,
 				DC760D5F286FAB6F002411B9 /* Match.cpp in Sources */,

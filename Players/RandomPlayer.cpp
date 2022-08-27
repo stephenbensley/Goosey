@@ -9,11 +9,7 @@ std::unique_ptr<Player> RandomPlayer::clone() const
 CardsDiscarded RandomPlayer::get_discards(const GameView& game,
                                           const CardsInHand& hand)
 {
-   CardsDiscarded discards;
-   for (auto i = 0; i < num_cards_discarded_per_player; ++i) {
-      discards[i] = hand[i];
-   }
-   return discards;
+   return discarder_.get_discards(game, hand).crib;
 }
 
 Card RandomPlayer::get_card_to_play(const GameView& game,
@@ -24,4 +20,9 @@ Card RandomPlayer::get_card_to_play(const GameView& game,
    });
 
    return (i != hand.end()) ? *i : go_card;
+}
+
+void RandomPlayer::on_set_index(PlayerIndex new_value)
+{
+   discarder_.set_index(new_value);
 }

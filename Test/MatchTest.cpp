@@ -9,7 +9,8 @@ TEST_CASE("Match::play(random vs. random)", "[match]")
    const int expected_wins = 100;
    const int num_games = expected_wins * num_players;
 
-   RandomPlayer player0, player1;
+   RandomDiscarder discarder0, discarder1;
+   RandomPlayer player0(discarder0), player1(discarder1);
    Match match({ &player0, &player1 });
    MatchResults results = match.play(num_games);
    const auto& wins = results.wins;
@@ -32,7 +33,8 @@ TEST_CASE("Match::play(greedy vs. greedy)", "[match]")
    const int expected_wins = 100;
    const int num_games = expected_wins * num_players;
 
-   GreedyPlayer player0, player1;
+   GreedyDiscarder discarder0, discarder1;
+   GreedyPlayer player0(discarder0), player1(discarder1);
    Match match({ &player0, &player1 });
    MatchResults results = match.play(num_games);
    const auto& wins = results.wins;
@@ -54,9 +56,11 @@ TEST_CASE("Match::play(greedy vs. random)", "[match]")
 {
    const int num_games = 1000;
 
-   GreedyPlayer greedy;
-   RandomPlayer random;
-   Match match({ &greedy, &random });
+   GreedyDiscarder discarder0;
+   GreedyPlayer player0(discarder0);
+   RandomDiscarder discarder1;
+   RandomPlayer player1(discarder1);
+   Match match({ &player0, &player1 });
    MatchResults results = match.play(num_games);
    const auto& wins = results.wins;
 

@@ -1,12 +1,4 @@
 #include "MinimaxPlayer.h"
-#include "Canonize.h"
-#include "CardSplitter.h"
-#include "MinimaxStrategy.h"
-
-MinimaxPlayer::MinimaxPlayer() noexcept
-{
-   discard_.load(filename);
-}
 
 std::unique_ptr<Player> MinimaxPlayer::clone() const
 {
@@ -16,10 +8,7 @@ std::unique_ptr<Player> MinimaxPlayer::clone() const
 CardsDiscarded MinimaxPlayer::get_discards(const GameView& game,
                                            const CardsInHand& hand)
 {
-   CardsDealt canonical(hand.data());
-   auto actions = discard_.find(canonize(canonical));
-   CardSplitter splitter(canonical);
-   splitter.seek(is_dealer(game) ? actions.dealer : actions.pone);
+   auto splitter = discarder_.get_discards(game, hand);
 
    RanksInHand ranks;
    for (auto card : splitter.hand) {
@@ -59,4 +48,9 @@ void MinimaxPlayer::on_play(const GameView& game, Play play, int points)
    if (play.player != index()) {
       card_play_.on_opponent_play(play.card.rank());
    }
+}
+
+void MinimaxPlayer::on_set_index(PlayerIndex new_value)
+{
+   discarder_.set_index(new_value);
 }

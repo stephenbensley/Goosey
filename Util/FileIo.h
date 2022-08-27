@@ -4,6 +4,17 @@
 #include <cstdint>
 #include <fstream>
 
+// Custom exception for file not found. This exception is not thrown by the
+// functions in FileIO, but is defined here for use by callers.
+class FileNotFound : public std::exception
+{
+public:
+   virtual const char* what() const noexcept override
+   {
+      return "Error: file not found.";
+   }
+};
+
 // All read functions return true on success. If the function fails, any out
 // parameters are unmodified.
 

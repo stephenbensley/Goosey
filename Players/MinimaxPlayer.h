@@ -1,16 +1,15 @@
 #ifndef ExpectimaxPlayer_h
 #define ExpectimaxPlayer_h
 
-#include "DiscardTable.h"
+#include "Discarder.h"
 #include "MinimaxStrategy.h"
 #include "Player.h"
 
-// Implements a pure table-lookup strategy for discards. Then uses expectimax
-// for card play.
+// Uses minimax strategy for card play.
 class MinimaxPlayer : public Player
 {
 public:
-   MinimaxPlayer() noexcept;
+   explicit MinimaxPlayer(Discarder& discarder);
    virtual std::unique_ptr<Player> clone() const override;
    virtual CardsDiscarded get_discards(const GameView& game,
                                        const CardsInHand& hand) override;
@@ -23,11 +22,15 @@ public:
    virtual void on_play(const GameView& game,
                         Play play,
                         int points) override;
+   virtual void on_set_index(PlayerIndex new_value) override;
 
 private:
-   static constexpr char filename[] = "discard.dat";
-   DiscardTable discard_;
+   Discarder& discarder_;
    MinimaxStrategy card_play_;
 };
+
+inline MinimaxPlayer::MinimaxPlayer(Discarder& discarder)
+: discarder_(discarder)
+{ }
 
 #endif /* ExpectimaxPlayer_h */
