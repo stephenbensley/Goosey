@@ -52,15 +52,27 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "match"
-            isEnabled = "YES">
+            argument = "boardvalue"
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "discard"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
+            argument = "expectedscores"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
             argument = "hvh"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "match"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "scorelog"
             isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>

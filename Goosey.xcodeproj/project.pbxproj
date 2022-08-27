@@ -8,7 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		DC13F97B28863A4F00F2608D /* HandVsHand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC13F97A28863A4F00F2608D /* HandVsHand.cpp */; };
-		DC45558F2884ABA700F925C7 /* discard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC45558E2884ABA700F925C7 /* discard.cpp */; };
+		DC21B11128A709F300388116 /* ScoreLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC43573F289C829200DDE633 /* ScoreLog.cpp */; };
+		DC21B11228A709F800388116 /* ScoreLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC21B0FF289C873A00388116 /* ScoreLogger.cpp */; };
+		DC21B11328A70A1900388116 /* libBoardStrategy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC21B10628A709DB00388116 /* libBoardStrategy.a */; };
+		DC21B11728A83A9D00388116 /* BoardValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC21B11628A83A9D00388116 /* BoardValue.cpp */; };
+		DC21B11A28A8466200388116 /* scorelog.dat in Copy Files */ = {isa = PBXBuildFile; fileRef = DC21B11428A70C4A00388116 /* scorelog.dat */; };
+		DC21B11C28AC0AAA00388116 /* boardvalue.dat in Copy Files */ = {isa = PBXBuildFile; fileRef = DC21B11B28AC0A1C00388116 /* boardvalue.dat */; };
+		DC4C180B28B59385008D4F09 /* DiscardSimulator.h in Headers */ = {isa = PBXBuildFile; fileRef = DC4C180A28B59385008D4F09 /* DiscardSimulator.h */; };
+		DC4C180D28B59503008D4F09 /* DiscardSimulator.cp in Sources */ = {isa = PBXBuildFile; fileRef = DC4C180C28B59503008D4F09 /* DiscardSimulator.cp */; };
+		DC4C181028B7E2EF008D4F09 /* ExpectedScores.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC4C180F28B7E2EF008D4F09 /* ExpectedScores.cpp */; };
 		DC567C0F286FA87C00791F61 /* Deck.h in Headers */ = {isa = PBXBuildFile; fileRef = DC567BD6286FA82F00791F61 /* Deck.h */; };
 		DC567C10286FA87F00791F61 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC567BD7286FA82F00791F61 /* Player.cpp */; };
 		DC567C11286FA88200791F61 /* GameModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC567BD8286FA82F00791F61 /* GameModel.cpp */; };
@@ -29,18 +37,14 @@
 		DC567C21286FA8B900791F61 /* GameController.h in Headers */ = {isa = PBXBuildFile; fileRef = DC567BE8286FA82F00791F61 /* GameController.h */; };
 		DC567C22286FA8BC00791F61 /* Card.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC567BE9286FA82F00791F61 /* Card.cpp */; };
 		DC567C23286FA8BE00791F61 /* GameView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC567BEA286FA82F00791F61 /* GameView.cpp */; };
-		DC567C55286FA98800791F61 /* DiscardStrategy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC567C32286FA94200791F61 /* DiscardStrategy.cpp */; };
-		DC567C56286FA98B00791F61 /* DiscardActions.h in Headers */ = {isa = PBXBuildFile; fileRef = DC567C2C286FA94200791F61 /* DiscardActions.h */; };
-		DC567C57286FA98E00791F61 /* DiscardBestResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = DC567C2D286FA94200791F61 /* DiscardBestResponse.h */; };
+		DC567C55286FA98800791F61 /* DiscardTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC567C32286FA94200791F61 /* DiscardTable.cpp */; };
 		DC567C58286FA99100791F61 /* CardSplitter.h in Headers */ = {isa = PBXBuildFile; fileRef = DC567C2E286FA94200791F61 /* CardSplitter.h */; };
 		DC567C59286FA99400791F61 /* CardSplitter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC567C2F286FA94200791F61 /* CardSplitter.cpp */; };
 		DC567C5A286FA99700791F61 /* Canonize.h in Headers */ = {isa = PBXBuildFile; fileRef = DC567C30286FA94200791F61 /* Canonize.h */; };
 		DC567C5B286FA99900791F61 /* DiscardAnalyzer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC567C31286FA94200791F61 /* DiscardAnalyzer.cpp */; };
 		DC567C5C286FA99E00791F61 /* CardSet.h in Headers */ = {isa = PBXBuildFile; fileRef = DC567C33286FA94200791F61 /* CardSet.h */; };
 		DC567C5D286FA9A100791F61 /* DiscardAnalyzer.h in Headers */ = {isa = PBXBuildFile; fileRef = DC567C34286FA94200791F61 /* DiscardAnalyzer.h */; };
-		DC567C5E286FA9A400791F61 /* DiscardActions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC567C35286FA94200791F61 /* DiscardActions.cpp */; };
-		DC567C5F286FA9A700791F61 /* DiscardBestResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC567C36286FA94200791F61 /* DiscardBestResponse.cpp */; };
-		DC567C60286FA9AA00791F61 /* DiscardStrategy.h in Headers */ = {isa = PBXBuildFile; fileRef = DC567C37286FA94200791F61 /* DiscardStrategy.h */; };
+		DC567C60286FA9AA00791F61 /* DiscardTable.h in Headers */ = {isa = PBXBuildFile; fileRef = DC567C37286FA94200791F61 /* DiscardTable.h */; };
 		DC567C61286FA9AD00791F61 /* Canonize.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC567C38286FA94200791F61 /* Canonize.cpp */; };
 		DC760D27286FAAB3002411B9 /* MinimaxStrategy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC760D03286FAA75002411B9 /* MinimaxStrategy.cpp */; };
 		DC760D2A286FAABD002411B9 /* CardPlayNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC760D06286FAA75002411B9 /* CardPlayNode.cpp */; };
@@ -63,7 +67,6 @@
 		DC760D89286FB7D3002411B9 /* DeckTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC760D71286FABD2002411B9 /* DeckTest.cpp */; };
 		DC760D8A286FB7D6002411B9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC760D72286FABD2002411B9 /* main.cpp */; };
 		DC760D8C286FBFC3002411B9 /* libGameModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC567C04286FA85800791F61 /* libGameModel.a */; };
-		DC760D9D286FC13C002411B9 /* match.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC760D90286FC0DD002411B9 /* match.cpp */; };
 		DC760DA4286FC383002411B9 /* MatchTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC760D6E286FABD2002411B9 /* MatchTest.cpp */; };
 		DC760DA5286FC39C002411B9 /* libPlayers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC760D52286FAB56002411B9 /* libPlayers.a */; };
 		DC760DA6286FC3AA002411B9 /* libDiscardStrategy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC567C4A286FA96B00791F61 /* libDiscardStrategy.a */; };
@@ -83,7 +86,6 @@
 		DCF73BB7287662640022D588 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCF73BB6287662640022D588 /* main.cpp */; };
 		DCFF8DF428821ED60095BD82 /* SpinlockTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCFF8DF328821ED60095BD82 /* SpinlockTest.cpp */; };
 		DCFF8DF6288228810095BD82 /* FileIOTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCFF8DF5288228810095BD82 /* FileIOTest.cpp */; };
-		DCFFC933288B0CFA00139330 /* hvh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCFFC932288B0CFA00139330 /* hvh.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +123,8 @@
 			dstPath = .;
 			dstSubfolderSpec = 16;
 			files = (
+				DC21B11C28AC0AAA00388116 /* boardvalue.dat in Copy Files */,
+				DC21B11A28A8466200388116 /* scorelog.dat in Copy Files */,
 				DCDBD50E2892DA170055088B /* hvh.dat in Copy Files */,
 				DCDBD4FF288DE0A70055088B /* discard.dat in Copy Files */,
 			);
@@ -132,7 +136,19 @@
 /* Begin PBXFileReference section */
 		DC13F9792885F5CA00F2608D /* HandVsHand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HandVsHand.h; sourceTree = "<group>"; };
 		DC13F97A28863A4F00F2608D /* HandVsHand.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HandVsHand.cpp; sourceTree = "<group>"; };
-		DC45558E2884ABA700F925C7 /* discard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = discard.cpp; sourceTree = "<group>"; };
+		DC21B0FE289C869B00388116 /* ScoreLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreLogger.h; sourceTree = "<group>"; };
+		DC21B0FF289C873A00388116 /* ScoreLogger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ScoreLogger.cpp; sourceTree = "<group>"; };
+		DC21B10628A709DB00388116 /* libBoardStrategy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBoardStrategy.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC21B11428A70C4A00388116 /* scorelog.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = scorelog.dat; sourceTree = "<group>"; };
+		DC21B11528A8399C00388116 /* BoardValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoardValue.h; sourceTree = "<group>"; };
+		DC21B11628A83A9D00388116 /* BoardValue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BoardValue.cpp; sourceTree = "<group>"; };
+		DC21B11B28AC0A1C00388116 /* boardvalue.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = boardvalue.dat; sourceTree = "<group>"; };
+		DC43573E289C81CF00DDE633 /* ScoreLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreLog.h; sourceTree = "<group>"; };
+		DC43573F289C829200DDE633 /* ScoreLog.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ScoreLog.cpp; sourceTree = "<group>"; };
+		DC4C180A28B59385008D4F09 /* DiscardSimulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscardSimulator.h; sourceTree = "<group>"; };
+		DC4C180C28B59503008D4F09 /* DiscardSimulator.cp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DiscardSimulator.cp; sourceTree = "<group>"; };
+		DC4C180E28B7DEB5008D4F09 /* ExpectedScores.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExpectedScores.h; sourceTree = "<group>"; };
+		DC4C180F28B7E2EF008D4F09 /* ExpectedScores.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExpectedScores.cpp; sourceTree = "<group>"; };
 		DC567BCF286FA82300791F61 /* pcg_extras.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pcg_extras.hpp; sourceTree = "<group>"; };
 		DC567BD0286FA82300791F61 /* catch.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = catch.hpp; sourceTree = "<group>"; };
 		DC567BD1286FA82300791F61 /* pcg_random.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pcg_random.hpp; sourceTree = "<group>"; };
@@ -161,18 +177,14 @@
 		DC567C25286FA8FC00791F61 /* SizedArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SizedArray.h; sourceTree = "<group>"; };
 		DC567C26286FA8FC00791F61 /* Spinlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spinlock.h; sourceTree = "<group>"; };
 		DC567C27286FA8FC00791F61 /* FileIo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileIo.h; sourceTree = "<group>"; };
-		DC567C2C286FA94200791F61 /* DiscardActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscardActions.h; sourceTree = "<group>"; };
-		DC567C2D286FA94200791F61 /* DiscardBestResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscardBestResponse.h; sourceTree = "<group>"; };
 		DC567C2E286FA94200791F61 /* CardSplitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardSplitter.h; sourceTree = "<group>"; };
 		DC567C2F286FA94200791F61 /* CardSplitter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CardSplitter.cpp; sourceTree = "<group>"; };
 		DC567C30286FA94200791F61 /* Canonize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Canonize.h; sourceTree = "<group>"; };
 		DC567C31286FA94200791F61 /* DiscardAnalyzer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DiscardAnalyzer.cpp; sourceTree = "<group>"; };
-		DC567C32286FA94200791F61 /* DiscardStrategy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DiscardStrategy.cpp; sourceTree = "<group>"; };
+		DC567C32286FA94200791F61 /* DiscardTable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DiscardTable.cpp; sourceTree = "<group>"; };
 		DC567C33286FA94200791F61 /* CardSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardSet.h; sourceTree = "<group>"; };
 		DC567C34286FA94200791F61 /* DiscardAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscardAnalyzer.h; sourceTree = "<group>"; };
-		DC567C35286FA94200791F61 /* DiscardActions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DiscardActions.cpp; sourceTree = "<group>"; };
-		DC567C36286FA94200791F61 /* DiscardBestResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DiscardBestResponse.cpp; sourceTree = "<group>"; };
-		DC567C37286FA94200791F61 /* DiscardStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscardStrategy.h; sourceTree = "<group>"; };
+		DC567C37286FA94200791F61 /* DiscardTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscardTable.h; sourceTree = "<group>"; };
 		DC567C38286FA94200791F61 /* Canonize.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Canonize.cpp; sourceTree = "<group>"; };
 		DC567C4A286FA96B00791F61 /* libDiscardStrategy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDiscardStrategy.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC760D03286FAA75002411B9 /* MinimaxStrategy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MinimaxStrategy.cpp; sourceTree = "<group>"; };
@@ -199,8 +211,8 @@
 		DC760D71286FABD2002411B9 /* DeckTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DeckTest.cpp; sourceTree = "<group>"; };
 		DC760D72286FABD2002411B9 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		DC760D7E286FAC3C002411B9 /* GooseyTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GooseyTest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC760D90286FC0DD002411B9 /* match.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = match.cpp; sourceTree = "<group>"; };
 		DC760D96286FC12C002411B9 /* Goosey */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Goosey; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC8BD37828BA84B700DBDAB5 /* expectedscores.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = expectedscores.dat; sourceTree = "<group>"; };
 		DC90EBAA28831A9E000D0379 /* SizedArrayTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SizedArrayTest.cpp; sourceTree = "<group>"; };
 		DC90EBAC2883237A000D0379 /* PlayerIndex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerIndex.h; sourceTree = "<group>"; };
 		DC90EBAD288327D7000D0379 /* DiscardDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscardDefs.h; sourceTree = "<group>"; };
@@ -213,10 +225,16 @@
 		DCF73BB6287662640022D588 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		DCFF8DF328821ED60095BD82 /* SpinlockTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SpinlockTest.cpp; sourceTree = "<group>"; };
 		DCFF8DF5288228810095BD82 /* FileIOTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FileIOTest.cpp; sourceTree = "<group>"; };
-		DCFFC932288B0CFA00139330 /* hvh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hvh.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DC21B10428A709DB00388116 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC567C02286FA85800791F61 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -260,6 +278,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC21B11328A70A1900388116 /* libBoardStrategy.a in Frameworks */,
 				DC760DA92870A84A002411B9 /* libCardPlayStrategy.a in Frameworks */,
 				DC760DAA2870A84E002411B9 /* libDiscardStrategy.a in Frameworks */,
 				DC760DAB2870A853002411B9 /* libGameModel.a in Frameworks */,
@@ -270,9 +289,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC21B10128A7099B00388116 /* BoardStrategy */ = {
+			isa = PBXGroup;
+			children = (
+				DC43573E289C81CF00DDE633 /* ScoreLog.h */,
+				DC43573F289C829200DDE633 /* ScoreLog.cpp */,
+				DC21B0FE289C869B00388116 /* ScoreLogger.h */,
+				DC21B0FF289C873A00388116 /* ScoreLogger.cpp */,
+				DC21B11528A8399C00388116 /* BoardValue.h */,
+				DC21B11628A83A9D00388116 /* BoardValue.cpp */,
+			);
+			path = BoardStrategy;
+			sourceTree = "<group>";
+		};
 		DC567BB7286FA79100791F61 = {
 			isa = PBXGroup;
 			children = (
+				DC21B10128A7099B00388116 /* BoardStrategy */,
 				DC760D02286FAA75002411B9 /* CardPlayStrategy */,
 				DC760D8F286FC0DD002411B9 /* CLI */,
 				DC760DA2286FC33F002411B9 /* Data */,
@@ -296,6 +329,7 @@
 				DC760D52286FAB56002411B9 /* libPlayers.a */,
 				DC760D7E286FAC3C002411B9 /* GooseyTest */,
 				DC760D96286FC12C002411B9 /* Goosey */,
+				DC21B10628A709DB00388116 /* libBoardStrategy.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -358,15 +392,15 @@
 				DC567C33286FA94200791F61 /* CardSet.h */,
 				DC567C2F286FA94200791F61 /* CardSplitter.cpp */,
 				DC567C2E286FA94200791F61 /* CardSplitter.h */,
-				DC567C35286FA94200791F61 /* DiscardActions.cpp */,
-				DC567C2C286FA94200791F61 /* DiscardActions.h */,
 				DC567C31286FA94200791F61 /* DiscardAnalyzer.cpp */,
 				DC567C34286FA94200791F61 /* DiscardAnalyzer.h */,
-				DC567C36286FA94200791F61 /* DiscardBestResponse.cpp */,
-				DC567C2D286FA94200791F61 /* DiscardBestResponse.h */,
+				DC4C180C28B59503008D4F09 /* DiscardSimulator.cp */,
+				DC4C180A28B59385008D4F09 /* DiscardSimulator.h */,
 				DC90EBAD288327D7000D0379 /* DiscardDefs.h */,
-				DC567C32286FA94200791F61 /* DiscardStrategy.cpp */,
-				DC567C37286FA94200791F61 /* DiscardStrategy.h */,
+				DC567C32286FA94200791F61 /* DiscardTable.cpp */,
+				DC567C37286FA94200791F61 /* DiscardTable.h */,
+				DC4C180E28B7DEB5008D4F09 /* ExpectedScores.h */,
+				DC4C180F28B7E2EF008D4F09 /* ExpectedScores.cpp */,
 			);
 			path = DiscardStrategy;
 			sourceTree = "<group>";
@@ -431,10 +465,7 @@
 		DC760D8F286FC0DD002411B9 /* CLI */ = {
 			isa = PBXGroup;
 			children = (
-				DC45558E2884ABA700F925C7 /* discard.cpp */,
 				DCF73BB6287662640022D588 /* main.cpp */,
-				DC760D90286FC0DD002411B9 /* match.cpp */,
-				DCFFC932288B0CFA00139330 /* hvh.cpp */,
 			);
 			path = CLI;
 			sourceTree = "<group>";
@@ -442,8 +473,11 @@
 		DC760DA2286FC33F002411B9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				DC21B11B28AC0A1C00388116 /* boardvalue.dat */,
 				DCDBD4FC288DBB900055088B /* discard.dat */,
+				DC8BD37828BA84B700DBDAB5 /* expectedscores.dat */,
 				DCDBD50C2892DA040055088B /* hvh.dat */,
+				DC21B11428A70C4A00388116 /* scorelog.dat */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -451,6 +485,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		DC21B10228A709DB00388116 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC567C00286FA85800791F61 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -472,11 +513,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC567C60286FA9AA00791F61 /* DiscardStrategy.h in Headers */,
-				DC567C57286FA98E00791F61 /* DiscardBestResponse.h in Headers */,
+				DC567C60286FA9AA00791F61 /* DiscardTable.h in Headers */,
 				DC567C5D286FA9A100791F61 /* DiscardAnalyzer.h in Headers */,
-				DC567C56286FA98B00791F61 /* DiscardActions.h in Headers */,
 				DC567C58286FA99100791F61 /* CardSplitter.h in Headers */,
+				DC4C180B28B59385008D4F09 /* DiscardSimulator.h in Headers */,
 				DC567C5A286FA99700791F61 /* Canonize.h in Headers */,
 				DC567C5C286FA99E00791F61 /* CardSet.h in Headers */,
 			);
@@ -507,6 +547,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		DC21B10528A709DB00388116 /* BoardStrategy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC21B10E28A709DB00388116 /* Build configuration list for PBXNativeTarget "BoardStrategy" */;
+			buildPhases = (
+				DC21B10228A709DB00388116 /* Headers */,
+				DC21B10328A709DB00388116 /* Sources */,
+				DC21B10428A709DB00388116 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BoardStrategy;
+			productName = BoardStrategy;
+			productReference = DC21B10628A709DB00388116 /* libBoardStrategy.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		DC567C03286FA85800791F61 /* GameModel */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC567C0C286FA85800791F61 /* Build configuration list for PBXNativeTarget "GameModel" */;
@@ -620,6 +677,9 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					DC21B10528A709DB00388116 = {
+						CreatedOnToolsVersion = 13.4;
+					};
 					DC567C03286FA85800791F61 = {
 						CreatedOnToolsVersion = 13.4;
 					};
@@ -653,9 +713,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DC567C03286FA85800791F61 /* GameModel */,
-				DC567C49286FA96B00791F61 /* DiscardStrategy */,
+				DC21B10528A709DB00388116 /* BoardStrategy */,
 				DC760D1A286FAA9E002411B9 /* CardPlayStrategy */,
+				DC567C49286FA96B00791F61 /* DiscardStrategy */,
+				DC567C03286FA85800791F61 /* GameModel */,
 				DC760D51286FAB56002411B9 /* Players */,
 				DC760D7D286FAC3C002411B9 /* GooseyTest */,
 				DC760D95286FC12C002411B9 /* Goosey */,
@@ -664,6 +725,16 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DC21B10328A709DB00388116 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC21B11228A709F800388116 /* ScoreLogger.cpp in Sources */,
+				DC21B11728A83A9D00388116 /* BoardValue.cpp in Sources */,
+				DC21B11128A709F300388116 /* ScoreLog.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC567C01286FA85800791F61 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -685,10 +756,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC567C5F286FA9A700791F61 /* DiscardBestResponse.cpp in Sources */,
 				DC567C59286FA99400791F61 /* CardSplitter.cpp in Sources */,
-				DC567C55286FA98800791F61 /* DiscardStrategy.cpp in Sources */,
-				DC567C5E286FA9A400791F61 /* DiscardActions.cpp in Sources */,
+				DC4C180D28B59503008D4F09 /* DiscardSimulator.cp in Sources */,
+				DC4C181028B7E2EF008D4F09 /* ExpectedScores.cpp in Sources */,
+				DC567C55286FA98800791F61 /* DiscardTable.cpp in Sources */,
 				DC567C61286FA9AD00791F61 /* Canonize.cpp in Sources */,
 				DC567C5B286FA99900791F61 /* DiscardAnalyzer.cpp in Sources */,
 			);
@@ -740,9 +811,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCF73BB7287662640022D588 /* main.cpp in Sources */,
-				DCFFC933288B0CFA00139330 /* hvh.cpp in Sources */,
-				DC45558F2884ABA700F925C7 /* discard.cpp in Sources */,
-				DC760D9D286FC13C002411B9 /* match.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -762,6 +830,32 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		DC21B10F28A709DB00388116 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6X2P4HJBQW;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		DC21B11028A709DB00388116 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6X2P4HJBQW;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		DC567BC9286FA79100791F61 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1019,6 +1113,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DC21B10E28A709DB00388116 /* Build configuration list for PBXNativeTarget "BoardStrategy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC21B10F28A709DB00388116 /* Debug */,
+				DC21B11028A709DB00388116 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DC567BBB286FA79100791F61 /* Build configuration list for PBXProject "Goosey" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

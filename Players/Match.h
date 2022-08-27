@@ -25,11 +25,13 @@ class Match
 public:
    explicit Match(const Players& players) noexcept;
 
-   MatchResults play(int num_games) const;
+   // If symmetric is true, each deal is played twice -- the second time with
+   // the roles reversed.
+   MatchResults play(int num_games, bool symmetric = true) const;
 
 private:
    // Worker for each parallel game.
-   MatchResults play_worker(int num_games) const;
+   MatchResults play_worker(int num_games, bool symmetric) const;
 
    Players players_;
 };

@@ -27,7 +27,13 @@ bool GameController::play_round()
    if (play_hands()) {
       return true;
    }
-   if (model_.show_hands(crib_.data())) {
+   if (show_pone()) {
+      return true;
+   }
+   if (show_dealer()) {
+      return true;
+   }
+   if (show_crib()) {
       return true;
    }
    start_new_round();
@@ -66,8 +72,8 @@ void GameController::form_crib()
 
 bool GameController::reveal_starter()
 {
-   auto game_over = model_.reveal_starter(deck_.deal_card());
-   dispatch_starter_revealed();
+   auto [points, game_over] = model_.reveal_starter(deck_.deal_card());
+   dispatch_starter_revealed(points);
    return game_over;
 }
 
@@ -80,8 +86,8 @@ bool GameController::play_hands()
          [[maybe_unused]] auto erased = hands_[player].erase(card);
          assert(erased);
       }
-      auto game_over = model_.play_card(card);
-      dispatch_opponent_play(player, card);
+      auto [points, game_over] = model_.play_card(card);
+      dispatch_play(player, card, points);
       if (game_over) {
          return true;
       }
@@ -90,34 +96,61 @@ bool GameController::play_hands()
    return false;
 }
 
+bool GameController::show_pone()
+{
+   auto [points, game_over] = model_.show_pone();
+   dispatch_hand_show(model_.pone(), points);
+   return game_over;
+}
+
+bool GameController::show_dealer()
+{
+   auto [points, game_over] = model_.show_dealer();
+   dispatch_hand_show(model_.dealer(), points);
+   return game_over;
+}
+
+bool GameController::show_crib()
+{
+   auto [points, game_over] = model_.show_crib(crib_.data());
+   dispatch_crib_show(points);
+   return game_over;
+}
+
 void GameController::start_new_round()
 {
-   dispatch_round_over();
    model_.start_new_round();
    crib_.clear();
 }
 
-void GameController::dispatch_starter_revealed() const noexcept
+void GameController::dispatch_starter_revealed(int points) const noexcept
 {
    for (auto p : players_) {
-      p->on_starter_revealed(model_, model_.starter());
+      p->on_starter_revealed(model_, model_.starter(), points);
    }
 }
 
-void GameController::dispatch_opponent_play(PlayerIndex player,
-                                            Card card) const noexcept
+void GameController::dispatch_play(PlayerIndex player,
+                                   Card card,
+                                   int points) const noexcept
 {
    for (auto p : players_) {
-      if (p->index() != player) {
-         p->on_opponent_play(model_, { player, card });
-      }
+      p->on_play(model_, { player, card }, points);
    }
 }
 
-void GameController::dispatch_round_over() const noexcept
+void GameController::dispatch_hand_show(PlayerIndex player,
+                                        int points) const noexcept
 {
    for (auto p : players_) {
-      p->on_round_over(model_);
+      p->on_hand_show(model_, player, model_.hand(player), points);
+   }
+}
+
+void GameController::dispatch_crib_show(int points) const noexcept
+{
+   for (auto p : players_) {
+      p->on_crib_show(model_, model_.crib(), points);
    }
 }
 

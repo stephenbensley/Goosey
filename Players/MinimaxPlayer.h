@@ -1,7 +1,7 @@
 #ifndef ExpectimaxPlayer_h
 #define ExpectimaxPlayer_h
 
-#include "DiscardStrategy.h"
+#include "DiscardTable.h"
 #include "MinimaxStrategy.h"
 #include "Player.h"
 
@@ -18,13 +18,15 @@ public:
                                  const CardsInHand& hand) override;
 
    virtual void on_starter_revealed(const GameView& game,
-                                    Card starter) override;
-   virtual void on_opponent_play(const GameView& game,
-                                 Play play) override;
+                                    Card starter,
+                                    int points) override;
+   virtual void on_play(const GameView& game,
+                        Play play,
+                        int points) override;
 
 private:
    static constexpr char filename[] = "discard.dat";
-   PureDiscardStrategy discard_;
+   DiscardTable discard_;
    MinimaxStrategy card_play_;
 };
 

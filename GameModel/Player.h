@@ -10,7 +10,7 @@ public:
    virtual ~Player() = default;
 
    // Set the index for this player. May only be called once.
-   void set_index(PlayerIndex new_value) noexcept;
+   void set_index(PlayerIndex new_value);
 
    // Create a clone of this player. When conducting multi-threaded matches, a
    // clone is used for each thread, so that instances don't have to be
@@ -30,9 +30,18 @@ public:
 
    // Notifies the player of interesting game events. A Player does not have
    // to implement these if they don't need the notification.
-   virtual void on_starter_revealed(const GameView& game, Card starter);
-   virtual void on_opponent_play(const GameView& game, Play play);
-   virtual void on_round_over(const GameView& game);
+   virtual void on_set_index(PlayerIndex new_value);
+   virtual void on_starter_revealed(const GameView& game,
+                                    Card starter,
+                                    int points);
+   virtual void on_play(const GameView& game, Play play, int points);
+   virtual void on_hand_show(const GameView& game,
+                             PlayerIndex player,
+                             const CardsPlayed& hand,
+                             int points);
+   virtual void on_crib_show(const GameView& game,
+                             const CardsInCrib& crib,
+                             int points);
    virtual void on_game_over(const GameView& game, PlayerIndex winner);
 
 protected:
@@ -45,12 +54,6 @@ private:
 };
 
 using Players = std::array<Player*, num_players>;
-
-inline void Player::set_index(PlayerIndex new_value) noexcept
-{
-   assert(index_ == invalid_player);
-   index_ = new_value;
-}
 
 inline PlayerIndex Player::index() const noexcept
 {

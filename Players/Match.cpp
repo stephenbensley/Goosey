@@ -22,7 +22,7 @@ Match::Match(const Players& players) noexcept
    }
 }
 
-MatchResults Match::play(int num_games) const
+MatchResults Match::play(int num_games, bool symmetric) const
 {
    auto concurrency = std::thread::hardware_concurrency();
 
@@ -45,7 +45,8 @@ MatchResults Match::play(int num_games) const
       results.push_back(std::async(std::launch::async,
                                    &Match::play_worker,
                                    this,
-                                   num_games));
+                                   num_games,
+                                   symmetric));
    }
 
    MatchResults total = { 0 };
@@ -62,7 +63,7 @@ MatchResults Match::play(int num_games) const
    return total;
 }
 
-MatchResults Match::play_worker(int num_games) const
+MatchResults Match::play_worker(int num_games, bool symmetric) const
 {
    // Clone the players. We create a separate set for each worker, so the
    // players don't have to be thread-safe.
@@ -87,13 +88,17 @@ MatchResults Match::play_worker(int num_games) const
 
    for (auto i = 0; i < num_games; ++i) {
       auto first_deal = (i % num_players);
-      // On each lap through the players, the first player gets a fresh deck.
-      // The remaining players get that same deck.
-      if (first_deal == 0) {
-         saved = deck;
-      } else {
-         deck = saved;
+
+      if (symmetric) {
+         // On each lap through the players, the first player gets a fresh deck.
+         // The remaining players get that same deck.
+         if (first_deal == 0) {
+            saved = deck;
+         } else {
+            deck = saved;
+         }
       }
+
       GameController game(raw_players, deck, first_deal);
       ++results.wins[game.play()];
    }

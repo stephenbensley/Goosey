@@ -45,7 +45,7 @@ void write_pod_map(std::ofstream& ostrm, const T& t) noexcept
 // Read a map (ordered or unordered) where both the key and the mapped type
 // are PoD.
 template<typename T>
-bool read_pod_map(std::ifstream& istrm, T& t) noexcept
+bool read_pod_map(std::ifstream& istrm, T& t)
 {
    uint64_t entries;
    if (!read_pod(istrm, entries)) {
@@ -78,7 +78,7 @@ void write_pod_vector(std::ofstream& ostrm, const T& t) noexcept
 
 // Read a vector where the elements are PoD.
 template<typename T>
-bool read_pod_vector(std::ifstream& istrm, T& t) noexcept
+bool read_pod_vector(std::ifstream& istrm, T& t)
 {
    uint64_t entries;
    if (!read_pod(istrm, entries)) {

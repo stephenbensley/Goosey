@@ -1,6 +1,8 @@
 #ifndef DiscardDefs_h
 #define DiscardDefs_h
 
+#include "CribDefs.h"
+
 constexpr int factorial(int n)
 {
    return (n <= 1) ? 1 : (n * factorial(n - 1));

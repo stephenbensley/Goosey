@@ -6,6 +6,7 @@ struct TestPlay
    PlayerIndex player;
    const char* card_sz;
    int count;
+   int points;
    int score;
 };
 
@@ -19,23 +20,24 @@ TEST_CASE("GameModel")
    std::copy(crib_vec.begin(), crib_vec.end(), crib.begin());
 
    const TestPlay plays[] = {
-      {1, "JH", 10, 0},
-      {0, "5S", 15, 2},
-      {1, "7C", 22, 0},
-      {0, "6H", 28, 5},
-      {1, "00", 28, 0},
-      {0, "2S", 30, 5},
-      {0, "00",  0, 6},
-      {1, "6D", 06, 0},
-      {0, "4S", 10, 6},
-      {1, "4H", 14, 3}
+      {1, "JH", 10, 0, 0},
+      {0, "5S", 15, 2, 2},
+      {1, "7C", 22, 0, 0},
+      {0, "6H", 28, 3, 5},
+      {1, "00", 28, 0, 0},
+      {0, "2S", 30, 0, 5},
+      {0, "00",  0, 1, 6},
+      {1, "6D", 06, 0, 0},
+      {0, "4S", 10, 0, 6},
+      {1, "4H", 14, 3, 3}
    };
    const int num_plays = sizeof(plays)/sizeof(plays[0]);
 
    GameModel model(0);
 
-   bool game_over = model.reveal_starter(starter);
-   REQUIRE(!game_over);
+   auto result = model.reveal_starter(starter);
+   REQUIRE(result.points == 0);
+   REQUIRE(!result.game_over);
 
    for (auto i = 0; i < num_plays; ++i) {
       auto player = plays[i].player;
@@ -43,19 +45,29 @@ TEST_CASE("GameModel")
 
       Card card;
       from_string(plays[i].card_sz, card);
-      game_over = model.play_card(card);
-      REQUIRE(!game_over);
+      result = model.play_card(card);
+      REQUIRE(result.points == plays[i].points);
+      REQUIRE(!result.game_over);
       REQUIRE(model.count() == plays[i].count);
       REQUIRE(model.score(plays[i].player) == plays[i].score);
    }
 
    REQUIRE(model.play_complete());
 
-   game_over = model.show_hands(crib);
-   REQUIRE(!game_over);
-
-   REQUIRE(model.score(0) == 24);
+   result = model.show_pone();
+   REQUIRE(!result.game_over);
+   REQUIRE(result.points == 9);
    REQUIRE(model.score(1) == 12);
+
+   result = model.show_dealer();
+   REQUIRE(!result.game_over);
+   REQUIRE(result.points == 12);
+   REQUIRE(model.score(0) == 18);
+
+   result = model.show_crib(crib);
+   REQUIRE(!result.game_over);
+   REQUIRE(result.points == 6);
+   REQUIRE(model.score(0) == 24);
 }
 
 

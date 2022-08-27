@@ -21,6 +21,7 @@ class GameView
 public:
    int score(PlayerIndex player) const noexcept;
    PlayerIndex dealer() const noexcept;
+   PlayerIndex pone() const noexcept;
    Card starter() const noexcept;
 
    // Log of all the plays made so far in the current round.
@@ -82,6 +83,11 @@ inline int GameView::score(PlayerIndex player) const noexcept
 inline PlayerIndex GameView::dealer() const noexcept
 {
    return dealer_;
+}
+
+inline PlayerIndex GameView::pone() const noexcept
+{
+   return other_player(dealer_);
 }
 
 inline Card GameView::starter() const noexcept

@@ -1,7 +1,7 @@
 #ifndef PureDiscardPlayer_h
 #define PureDiscardPlayer_h
 
-#include "DiscardStrategy.h"
+#include "DiscardTable.h"
 #include "GreedyPlayer.h"
 
 // Extends GreedPlayer to implement an arbitrary pure discard strategy.
@@ -15,7 +15,7 @@ public:
 
 private:
    static constexpr char filename[] = "discard.dat";
-   PureDiscardStrategy strategy_;
+   DiscardTable strategy_;
 };
 
 #endif /* PureDiscardPlayer_h */

@@ -1,5 +1,5 @@
-#ifndef DiscardStrategy_h
-#define DiscardStrategy_h
+#ifndef DiscardTable_h
+#define DiscardTable_h
 
 #include "Card.h"
 #include <cstdint>
@@ -7,8 +7,8 @@
 #include <unordered_map>
 
 // Represents a pure strategy for selecting which cards to discard from a
-// cribbage hand.
-class PureDiscardStrategy
+// cribbage hand where the action is determined from a table lookup.
+class DiscardTable
 {
 public:
    // Actions for each hand. Since the crib is scored for the dealer, the
@@ -18,11 +18,8 @@ public:
       int pone;
    };
 
-   CardsDiscarded get_action(bool dealer,
-                             const CardsDealt& cards) const noexcept;
-
    // Returns the actions for the hand with the given key.
-   Actions get_actions(uint64_t key) const noexcept;
+   Actions find(uint64_t key) const noexcept;
 
    // Returns true if actions have been defined for the given key.
    bool contains(uint64_t key) const noexcept;
@@ -32,8 +29,11 @@ public:
                        const CardsDealt& cards) const noexcept;
 
    // Load/save the strategy from/to a file.
-   bool load(const char* filename) noexcept;
+   bool load(const char* filename);
    void save(const char* filename) const noexcept;
+
+   // Clears the lookup table.
+   void clear() noexcept;
 
    // Add a new actions to the strategy. If an entry already exists for the
    // given key, it is silently overwritten.
@@ -44,22 +44,26 @@ private:
    MapType strategy_;
 };
 
-inline PureDiscardStrategy::Actions
-PureDiscardStrategy::get_actions(uint64_t key) const noexcept
+inline DiscardTable::Actions DiscardTable::find(uint64_t key) const noexcept
 {
    auto i = strategy_.find(key);
    assert(i != strategy_.end());
    return i->second;
 }
 
-inline bool PureDiscardStrategy::contains(uint64_t key) const noexcept
+inline bool DiscardTable::contains(uint64_t key) const noexcept
 {
    return strategy_.find(key) != strategy_.end();
 }
 
+inline void DiscardTable::clear() noexcept
+{
+   strategy_.clear();
+}
+
 // Generate a greedy discard strategy, i.e., a strategy that maximizes the
 // number of guaranteed points.
-PureDiscardStrategy generate_greedy_strategy();
+DiscardTable generate_greedy_strategy();
 
 // Invokes Fn for every possible combination of cards dealt.
 template<typename Fn>
@@ -89,4 +93,4 @@ void generate_cards_dealt(Fn fn) noexcept
    }
 }
 
-#endif /* DiscardStrategy_h */
+#endif /* DiscardTable_h */

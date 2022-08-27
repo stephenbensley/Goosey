@@ -1,27 +1,10 @@
-#include "DiscardStrategy.h"
+#include "DiscardTable.h"
 #include "Canonize.h"
 #include "CardSplitter.h"
 #include "FileIo.h"
 #include "Score.h"
 
-#include "DiscardActions.h"
-
-CardsDiscarded
-PureDiscardStrategy::get_action(bool dealer,
-                                const CardsDealt& cards) const noexcept
-{
-   // Make a copy of the hand, so we can canonize it.
-   CardsDealt canonical(cards);
-   // Canonize the hand and lookup the actions based on the canonical key.
-   auto actions = get_actions(canonize(canonical));
-   // Load a CardSplitter to evaluate the chosen action.
-   CardSplitter splitter(canonical);
-   splitter.seek(dealer ? actions.dealer : actions.pone);
-   // Return the discards.
-   return splitter.crib;
-}
-
-void PureDiscardStrategy::format_actions(std::ostream& out,
+void DiscardTable::format_actions(std::ostream& out,
                                          const CardsDealt& cards) const noexcept
 {
    // Canonize the hand.
@@ -29,22 +12,17 @@ void PureDiscardStrategy::format_actions(std::ostream& out,
    auto key = canonize(canonized);
 
    // Retrieve the actions.
-   auto actions = get_actions(key);
-   DiscardActions available(canonized);
+   auto actions = find(key);
 
    CardSplitter splitter(canonized);
 
    out << "Hand: " << to_string(canonized.begin(), canonized.end()) << '\n';
-   out << "\n                        dealer   pone\n";
+   out << "\n                     dealer   pone\n";
 
    for (auto i = 0; i < num_discard_actions; ++i) {
       out << to_string(splitter.hand.begin(), splitter.hand.end()) << " - "
           << to_string(splitter.crib.begin(), splitter.crib.end());
-      if (available.test(i)) {
-         out << " + ";
-      } else {
-         out << " - ";
-      }
+
       if (i == actions.dealer) {
          out << "     * ";
       } else {
@@ -59,7 +37,7 @@ void PureDiscardStrategy::format_actions(std::ostream& out,
    }
 }
 
-bool PureDiscardStrategy::load(const char* filename) noexcept
+bool DiscardTable::load(const char* filename)
 {
    std::ifstream istrm(filename, std::ios::binary);
    if (!istrm.is_open()) {
@@ -76,22 +54,20 @@ bool PureDiscardStrategy::load(const char* filename) noexcept
    return true;
 }
 
-void PureDiscardStrategy::save(const char* filename) const noexcept
+void DiscardTable::save(const char* filename) const noexcept
 {
    std::ofstream ostrm(filename, std::ios::binary | std::ios::trunc);
    write_pod_map(ostrm, strategy_);
 }
 
-void PureDiscardStrategy::insert(uint64_t key,
-                                 int dealer_action,
-                                 int pone_action)
+void DiscardTable::insert(uint64_t key, int dealer_action, int pone_action)
 {
     strategy_[key] = { dealer_action, pone_action };
 }
 
-PureDiscardStrategy generate_greedy_strategy()
+DiscardTable generate_greedy_strategy()
 {
-   PureDiscardStrategy dst;
+   DiscardTable dst;
    generate_cards_dealt([&dst](auto& cards) {
       auto key = canonize(cards);
       if (dst.contains(key)) { return; }

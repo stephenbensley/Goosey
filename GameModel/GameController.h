@@ -26,17 +26,24 @@ private:
    // Ask players which cards they want to lay away and discard these to crib.
    void form_crib();
    // Turn up the starter card and announce it to the players.
-   bool reveal_starter();
+   [[nodiscard]] bool reveal_starter();
    // Handles the card play portion of a round. Returns true if the game is
    // over.
    [[nodiscard]] bool play_hands();
+   // Score the hands.
+   [[nodiscard]] bool show_pone();
+   [[nodiscard]] bool show_dealer();
+   [[nodiscard]] bool show_crib();
    // Start a new round of play.
    void start_new_round();
 
    // Dispatch notifications to players.
-   void dispatch_starter_revealed() const noexcept;
-   void dispatch_opponent_play(PlayerIndex player, Card card) const noexcept;
-   void dispatch_round_over() const noexcept;
+   void dispatch_starter_revealed(int points) const noexcept;
+   void dispatch_play(PlayerIndex player,
+                      Card card,
+                      int points) const noexcept;
+   void dispatch_hand_show(PlayerIndex player, int points) const noexcept;
+   void dispatch_crib_show(int points) const noexcept;
    void dispatch_game_over() const noexcept;
 
    Players players_;

@@ -16,7 +16,7 @@ CardsDiscarded PureDiscardPlayer::get_discards(const GameView& game,
                                                const CardsInHand& hand)
 {
    CardsDealt canonical(hand.data());
-   auto actions = strategy_.get_actions(canonize(canonical));
+   auto actions = strategy_.find(canonize(canonical));
    CardSplitter splitter(canonical);
    splitter.seek(is_dealer(game) ? actions.dealer : actions.pone);
    return splitter.crib;

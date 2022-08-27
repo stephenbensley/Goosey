@@ -7,15 +7,18 @@ GameModel::GameModel(PlayerIndex first_deal) noexcept
 : GameView(first_deal), card_play_(first_deal)
 { }
 
-bool GameModel::reveal_starter(Card card) noexcept
+GameModel::Result GameModel::reveal_starter(Card card) noexcept
 {
    set_starter(card);
    // If the starter is a jack, dealer scores for 'his heels'.
-   return starter().is_jack() &&
-          peg_points(dealer(), num_points_for_his_heels);
+   if (starter().is_jack()) {
+      return get_result(dealer(), num_points_for_his_heels);
+   } else {
+      return { 0, false };
+   }
 }
 
-bool GameModel::play_card(Card card) noexcept
+GameModel::Result GameModel::play_card(Card card) noexcept
 {
    auto player = current_player();
    GameView::play_card({ player, card });
@@ -23,21 +26,23 @@ bool GameModel::play_card(Card card) noexcept
    if (card_play_.count() == 0) {
       start_new_series();
    }
-   return peg_points(player, points);
+   return get_result(player, points);
 }
 
-bool GameModel::show_hands(const CardsShown& crib) noexcept
+GameModel::Result GameModel::show_pone() noexcept
+{
+   return get_result(pone(), score_hand(pone()));
+}
+
+GameModel::Result GameModel::show_dealer() noexcept
+{
+   return get_result(dealer(), score_hand(dealer()));
+}
+
+GameModel::Result GameModel::show_crib(const CardsShown& crib) noexcept
 {
    set_crib(crib);
-
-   // Score starting with the player to the left of the dealer. Order is
-   // important since whoever reaches the winning score first, wins.
-   for (auto player : deal_order(dealer())) {
-      if (peg_points(player, score_hand(player))) {
-         return true;
-      }
-   }
-   return peg_points(dealer(), score_crib());
+   return get_result(dealer(), score_crib());
 }
 
 void GameModel::start_new_round() noexcept
