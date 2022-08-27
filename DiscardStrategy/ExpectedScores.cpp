@@ -1,6 +1,14 @@
 #include "ExpectedScores.h"
 #include "FileIO.h"
 
+int ExpectedScores::Score::observer_net_mpoints() const noexcept
+{
+   return static_cast<int>(observer_play_mpoints) +
+          static_cast<int>(observer_hand_mpoints) -
+          static_cast<int>(opponent_play_mpoints) -
+          static_cast<int>(opponent_hand_mpoints);
+}
+
 bool ExpectedScores::load(const char* filename)
 {
    std::ifstream istrm(filename, std::ios::binary);

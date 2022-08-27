@@ -1,3 +1,4 @@
+#include "BoardPosDiscarder.h"
 #include "BoardValue.h"
 #include "DiscardSimulator.h"
 #include "GreedyPlayer.h"
@@ -111,9 +112,9 @@ int verb_hvh(int argc, char* const argv[])
 int verb_match(int argc, char* const argv[])
 {
    TableDiscarder discarder0("discard.dat");
-   GreedyPlayer player0(discarder0);
+   MinimaxPlayer player0(discarder0);
 
-   TableDiscarder discarder1("discard.dat");
+   BoardPositionDiscarder discarder1("boardvalue.dat", "expectedscores.dat");
    MinimaxPlayer player1(discarder1);
 
    Match match({ &player0, &player1 });

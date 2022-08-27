@@ -73,6 +73,8 @@
 		DC760DAB2870A853002411B9 /* libGameModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC567C04286FA85800791F61 /* libGameModel.a */; };
 		DC760DAC2870A856002411B9 /* libPlayers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC760D52286FAB56002411B9 /* libPlayers.a */; };
 		DC8BD37B28BA870C00DBDAB5 /* Discarder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC8BD37A28BA870C00DBDAB5 /* Discarder.cpp */; };
+		DC8BD37E28BAC46400DBDAB5 /* BoardPosDiscarder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC8BD37D28BAC46400DBDAB5 /* BoardPosDiscarder.cpp */; };
+		DC8BD37F28BAC6C300DBDAB5 /* expectedscores.dat in Copy Files */ = {isa = PBXBuildFile; fileRef = DC8BD37828BA84B700DBDAB5 /* expectedscores.dat */; };
 		DC90EBAB28831A9E000D0379 /* SizedArrayTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC90EBAA28831A9E000D0379 /* SizedArrayTest.cpp */; };
 		DCA3A8492883573B0026BC22 /* CardPlayHandsTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCA3A8482883573B0026BC22 /* CardPlayHandsTest.cpp */; };
 		DCA3A84A288358440026BC22 /* libCardPlayStrategy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC760D1B286FAA9E002411B9 /* libCardPlayStrategy.a */; };
@@ -122,6 +124,7 @@
 			dstPath = .;
 			dstSubfolderSpec = 16;
 			files = (
+				DC8BD37F28BAC6C300DBDAB5 /* expectedscores.dat in Copy Files */,
 				DC21B11C28AC0AAA00388116 /* boardvalue.dat in Copy Files */,
 				DC21B11A28A8466200388116 /* scorelog.dat in Copy Files */,
 				DCDBD50E2892DA170055088B /* hvh.dat in Copy Files */,
@@ -212,6 +215,8 @@
 		DC8BD37828BA84B700DBDAB5 /* expectedscores.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = expectedscores.dat; sourceTree = "<group>"; };
 		DC8BD37928BA865B00DBDAB5 /* Discarder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Discarder.h; sourceTree = "<group>"; };
 		DC8BD37A28BA870C00DBDAB5 /* Discarder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Discarder.cpp; sourceTree = "<group>"; };
+		DC8BD37C28BAC3AE00DBDAB5 /* BoardPosDiscarder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoardPosDiscarder.h; sourceTree = "<group>"; };
+		DC8BD37D28BAC46400DBDAB5 /* BoardPosDiscarder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BoardPosDiscarder.cpp; sourceTree = "<group>"; };
 		DC90EBAA28831A9E000D0379 /* SizedArrayTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SizedArrayTest.cpp; sourceTree = "<group>"; };
 		DC90EBAC2883237A000D0379 /* PlayerIndex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerIndex.h; sourceTree = "<group>"; };
 		DC90EBAD288327D7000D0379 /* DiscardDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscardDefs.h; sourceTree = "<group>"; };
@@ -402,6 +407,8 @@
 				DC4C180F28B7E2EF008D4F09 /* ExpectedScores.cpp */,
 				DC8BD37928BA865B00DBDAB5 /* Discarder.h */,
 				DC8BD37A28BA870C00DBDAB5 /* Discarder.cpp */,
+				DC8BD37C28BAC3AE00DBDAB5 /* BoardPosDiscarder.h */,
+				DC8BD37D28BAC46400DBDAB5 /* BoardPosDiscarder.cpp */,
 			);
 			path = DiscardStrategy;
 			sourceTree = "<group>";
@@ -755,6 +762,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC567C59286FA99400791F61 /* CardSplitter.cpp in Sources */,
+				DC8BD37E28BAC46400DBDAB5 /* BoardPosDiscarder.cpp in Sources */,
 				DC4C180D28B59503008D4F09 /* DiscardSimulator.cp in Sources */,
 				DC4C181028B7E2EF008D4F09 /* ExpectedScores.cpp in Sources */,
 				DC567C55286FA98800791F61 /* DiscardTable.cpp in Sources */,
