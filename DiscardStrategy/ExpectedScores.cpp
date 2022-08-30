@@ -1,12 +1,21 @@
 #include "ExpectedScores.h"
 #include "FileIO.h"
 
-int ExpectedScores::Score::observer_net_mpoints() const noexcept
+int ExpectedScores::Score::observer_mpoints() const noexcept
 {
    return static_cast<int>(observer_play_mpoints) +
-          static_cast<int>(observer_hand_mpoints) -
-          static_cast<int>(opponent_play_mpoints) -
+          static_cast<int>(observer_hand_mpoints);
+}
+
+int ExpectedScores::Score::opponent_mpoints() const noexcept
+{
+   return static_cast<int>(opponent_play_mpoints) +
           static_cast<int>(opponent_hand_mpoints);
+}
+
+int ExpectedScores::Score::observer_net_mpoints() const noexcept
+{
+   return observer_mpoints() - opponent_mpoints();
 }
 
 bool ExpectedScores::load(const char* filename)

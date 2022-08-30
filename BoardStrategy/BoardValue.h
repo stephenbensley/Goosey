@@ -2,6 +2,7 @@
 #define BoardValue_h
 
 #include "ScoreLog.h"
+#include <optional>
 #include <vector>
 
 // Builds a table of the probabilities of the dealer winning the game from a
@@ -11,6 +12,14 @@
 class BoardValue
 {
 public:
+   const double* operator[](int i) const noexcept;
+
+   // Computes the win probability for fractional scores. Returns an optional
+   // since scores may be out of range.
+   std::optional<double> p_win(double dealer_score,
+                               double pone_score) const noexcept;
+
+
    // Builds a new table using the simulation data from the ScoreLog.
    void build(const ScoreLog& log);
 
@@ -18,8 +27,6 @@ public:
    bool load(const char* filename);
    void save(const char* filename) const noexcept;
 
-   const double* operator[](int i) const noexcept;
-   
 private:
    using Score = ScoreRecord::Score;
    using Scores = std::vector<Score>;

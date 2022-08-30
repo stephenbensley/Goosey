@@ -1,6 +1,35 @@
 #include "BoardValue.h"
 #include "FileIO.h"
+#include <cmath>
 #include <future>
+
+std::optional<double> BoardValue::p_win(double x, double y) const noexcept
+{
+   // Use bilinear interpolation to estimate the win probability for
+   // fractional values.
+
+   // Find the four corners around the point at which we want to interpolate.
+   int x1 = std::floor(x);
+   auto x2 = x1 + 1;
+   int y1 = std::floor(y);
+   auto y2 = y1 + 1;
+
+   // If we're out of range, there's nothing we can do.
+   if ((x2 >= num_points_to_win) || (y2 >= num_points_to_win))
+   {
+      return std::optional<double>();
+   }
+
+   // Look up the win probabilities at the corners.
+   auto f11 = value_[x1][y1];
+   auto f12 = value_[x1][y2];
+   auto f21 = value_[x2][y1];
+   auto f22 = value_[x2][y2];
+
+   // Lifted from the Wikipedia article on bilinear interpolation.
+   return ((x2 - x) * f11 + (x - x1) * f21) * (y2 - y) +
+          ((x2 - x) * f12 + (x - x1) * f22) * (y - y1);
+}
 
 void BoardValue::build(const ScoreLog& log)
 {

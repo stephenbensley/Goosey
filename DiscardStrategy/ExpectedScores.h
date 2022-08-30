@@ -19,6 +19,9 @@ public:
       int16_t opponent_play_mpoints = 0;
       int16_t opponent_hand_mpoints = 0;
 
+      int observer_mpoints() const noexcept;
+      int opponent_mpoints() const noexcept;
+      
       int observer_net_mpoints() const noexcept;
    };
    using Scores = std::array<Score, num_discard_actions>;

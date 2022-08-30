@@ -16,6 +16,13 @@ public:
                                      const CardsInHand& hand) override;
 
 private:
+   std::optional<double>
+   compute_value(bool dealer,
+                 int observer_score,
+                 int opponent_score,
+                 double his_heels,
+                 const ExpectedScores::Score& score) const noexcept;
+
    BoardValue board_;
    ExpectedScores scores_;
 };

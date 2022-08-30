@@ -60,6 +60,10 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
+            argument = "dumpboardvalue"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
             argument = "expectedscores"
             isEnabled = "NO">
          </CommandLineArgument>

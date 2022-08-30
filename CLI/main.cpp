@@ -68,6 +68,32 @@ int verb_discard(int argc, char* const argv[])
    return 0;
 }
 
+int verb_dumpboardvalue(int argc, char* const argv[])
+{
+   std::ofstream ostrm("boardvalue.csv", std::ios::trunc);
+
+   BoardValue board;
+   if (!board.load("boardvalue.dat")) {
+      ostrm << "Failed to load boardvalue.dat" << std::endl;
+      return -1;
+   }
+
+   for (auto i = 0; i < num_points_to_win; ++i) {
+      ostrm << ", " << i;
+   }
+   ostrm << std::endl;
+
+   for (auto i = 0; i < num_points_to_win; ++i) {
+      ostrm << i;
+      for (auto j = 0; j < num_points_to_win; ++j) {
+         ostrm << ", " << board[i][j];
+      }
+      ostrm << std::endl;
+   }
+
+   return 0;
+}
+
 int verb_expectedscores(int argc, char* const argv[])
 {
    DiscardTable strategy;
@@ -162,6 +188,7 @@ struct Verb {
 const Verb verbs[] = {
    DECLARE_VERB(boardvalue),
    DECLARE_VERB(discard),
+   DECLARE_VERB(dumpboardvalue),
    DECLARE_VERB(expectedscores),
    DECLARE_VERB(hvh),
    DECLARE_VERB(match),
