@@ -16,8 +16,6 @@ public:
    struct Cell {
       uint8_t dealer_points;
       uint8_t pone_points;
-      uint16_t dealer_combos;
-      uint16_t pone_combos;
    };
 
    HandVsHand();

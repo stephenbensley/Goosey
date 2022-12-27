@@ -30,17 +30,28 @@ public:
    void save(const char* filename) const noexcept;
 
 private:
-   // Tallies the results of a discard action. Based on experiments, it would
-   // take >10^13 hands to overflow a signed int.
-   struct ActionResult {
-      int observer_play_points = 0;
-      int observer_hand_points = 0;
-      int opponent_play_points = 0;
-      int opponent_hand_points = 0;
+   // Tallies the points scored in a round of Cribbage.
+   struct PointsScored {
+      int observer_play = 0;
+      int observer_hand = 0;
+      int opponent_play = 0;
+      int opponent_hand = 0;
 
-      ActionResult& operator+=(const ActionResult& rhs) noexcept;
       // Net points scored by the observer.
+      int observer_net() const noexcept;
+   };
+
+   // Accumulates statistics for a discard action.
+   class ActionResult {
+   public:
+      // Updates the statistics based on the given outcome.
+      void update(const PointsScored& points) noexcept;
+
+      // Returns the total net points scored by the observer.
       int observer_net_points() const noexcept;
+
+   private:
+      int observer_net_points_ = 0;
    };
    using ActionResults = std::array<ActionResult, num_discard_actions>;
 

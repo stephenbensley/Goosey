@@ -7,20 +7,19 @@
 #include <limits>
 #include <vector>
 
-DiscardSimulator::ActionResult&
-DiscardSimulator::ActionResult::operator+=(const ActionResult& rhs) noexcept
+int DiscardSimulator::PointsScored::observer_net() const noexcept
 {
-   observer_play_points += rhs.observer_play_points;
-   observer_hand_points += rhs.observer_hand_points;
-   opponent_play_points += rhs.opponent_play_points;
-   opponent_hand_points += rhs.opponent_hand_points;
-   return *this;
+   return (observer_play + observer_hand) - (opponent_play + opponent_hand);
+}
+
+void DiscardSimulator::ActionResult::update(const PointsScored& points) noexcept
+{
+   observer_net_points_ += points.observer_net();
 }
 
 int DiscardSimulator::ActionResult::observer_net_points() const noexcept
 {
-   return (observer_play_points + observer_hand_points) -
-          (opponent_play_points + opponent_hand_points);
+   return observer_net_points_;
 }
 
 DiscardSimulator::DiscardSimulator(const DiscardTable& opponent,
@@ -81,14 +80,6 @@ double DiscardSimulator::best_response(DiscardTable& response) const noexcept
    return static_cast<double>(points_sum) / static_cast<double>(count_sum);
 }
 
-// Helper functions to compute the average number of milli-points.
-int16_t avg_mpoints(int sum_points, int count) noexcept
-{
-   assert(sum_points >= 0);
-   assert(count > 0);
-   return (1000l * sum_points + 500l) / count;
-}
-
 bool DiscardSimulator::load(const char* filename)
 {
    std::ifstream istrm(filename, std::ios::binary);
@@ -137,7 +128,7 @@ void DiscardSimulator::simulate_worker(int64_t num_hands) noexcept
          auto opponent_ordinal = hvh_.ordinal(opponent.kept());
 
          // Results are calculated for all possible observer actions.
-         ActionResults results;
+         std::array<PointsScored, num_discard_actions> outcomes;
          for (auto a = 0; a < num_discard_actions; ++a) {
             observer.take_action(a);
             auto observer_hand_points = observer.hand_points(starter);
@@ -149,19 +140,19 @@ void DiscardSimulator::simulate_worker(int64_t num_hands) noexcept
             assert(crib_points == opponent.crib_points(observer.discarded(),
                                                        starter));
 
-            auto& result = results[a];
+            auto& outcome = outcomes[a];
             if (dealer) {
                auto& cell = hvh_[observer_ordinal][opponent_ordinal];
-               result.observer_play_points = cell.dealer_points;
-               result.observer_hand_points = observer_hand_points + crib_points;
-               result.opponent_play_points = cell.pone_points;
-               result.opponent_hand_points = opponent_hand_points;
+               outcome.observer_play = cell.dealer_points;
+               outcome.observer_hand = observer_hand_points + crib_points;
+               outcome.opponent_play = cell.pone_points;
+               outcome.opponent_hand = opponent_hand_points;
             } else {
                auto& cell = hvh_[opponent_ordinal][observer_ordinal];
-               result.observer_play_points = cell.pone_points;
-               result.observer_hand_points = observer_hand_points;
-               result.opponent_play_points = cell.dealer_points;
-               result.opponent_hand_points = opponent_hand_points + crib_points;
+               outcome.observer_play = cell.pone_points;
+               outcome.observer_hand = observer_hand_points;
+               outcome.opponent_play = cell.dealer_points;
+               outcome.opponent_hand = opponent_hand_points + crib_points;
             }
          }
 
@@ -171,7 +162,7 @@ void DiscardSimulator::simulate_worker(int64_t num_hands) noexcept
          SpinlockGuard guard(state.lock);
          ++(state.count);
          for (auto a = 0; a < num_discard_actions; ++a) {
-            state.results[a] += results[a];
+            state.results[a].update(outcomes[a]);
          }
       }
    }

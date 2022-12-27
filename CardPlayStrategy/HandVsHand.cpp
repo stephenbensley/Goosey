@@ -68,8 +68,6 @@ void HandVsHand::build_worker(int idx, int num_workers) noexcept
          auto& cell = (*this)[i][pone.pos()];
          cell.dealer_points = points.first;
          cell.pone_points = points.second;
-         cell.dealer_combos = pone.rcombos();
-         cell.pone_combos = pone.combos();
       }
    }
 }
