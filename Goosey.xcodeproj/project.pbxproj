@@ -16,7 +16,6 @@
 		DC21B11C28AC0AAA00388116 /* boardvalue.dat in Copy Files */ = {isa = PBXBuildFile; fileRef = DC21B11B28AC0A1C00388116 /* boardvalue.dat */; };
 		DC4C180B28B59385008D4F09 /* DiscardSimulator.h in Headers */ = {isa = PBXBuildFile; fileRef = DC4C180A28B59385008D4F09 /* DiscardSimulator.h */; };
 		DC4C180D28B59503008D4F09 /* DiscardSimulator.cp in Sources */ = {isa = PBXBuildFile; fileRef = DC4C180C28B59503008D4F09 /* DiscardSimulator.cp */; };
-		DC4C181028B7E2EF008D4F09 /* ExpectedScores.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC4C180F28B7E2EF008D4F09 /* ExpectedScores.cpp */; };
 		DC567C0F286FA87C00791F61 /* Deck.h in Headers */ = {isa = PBXBuildFile; fileRef = DC567BD6286FA82F00791F61 /* Deck.h */; };
 		DC567C10286FA87F00791F61 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC567BD7286FA82F00791F61 /* Player.cpp */; };
 		DC567C11286FA88200791F61 /* GameModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC567BD8286FA82F00791F61 /* GameModel.cpp */; };
@@ -73,7 +72,6 @@
 		DC760DAB2870A853002411B9 /* libGameModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC567C04286FA85800791F61 /* libGameModel.a */; };
 		DC760DAC2870A856002411B9 /* libPlayers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC760D52286FAB56002411B9 /* libPlayers.a */; };
 		DC8BD37B28BA870C00DBDAB5 /* Discarder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC8BD37A28BA870C00DBDAB5 /* Discarder.cpp */; };
-		DC8BD37E28BAC46400DBDAB5 /* BoardPosDiscarder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC8BD37D28BAC46400DBDAB5 /* BoardPosDiscarder.cpp */; };
 		DC8BD37F28BAC6C300DBDAB5 /* expectedscores.dat in Copy Files */ = {isa = PBXBuildFile; fileRef = DC8BD37828BA84B700DBDAB5 /* expectedscores.dat */; };
 		DC90EBAB28831A9E000D0379 /* SizedArrayTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC90EBAA28831A9E000D0379 /* SizedArrayTest.cpp */; };
 		DCA3A8492883573B0026BC22 /* CardPlayHandsTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCA3A8482883573B0026BC22 /* CardPlayHandsTest.cpp */; };
@@ -149,8 +147,6 @@
 		DC43573F289C829200DDE633 /* ScoreLog.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ScoreLog.cpp; sourceTree = "<group>"; };
 		DC4C180A28B59385008D4F09 /* DiscardSimulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscardSimulator.h; sourceTree = "<group>"; };
 		DC4C180C28B59503008D4F09 /* DiscardSimulator.cp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DiscardSimulator.cp; sourceTree = "<group>"; };
-		DC4C180E28B7DEB5008D4F09 /* ExpectedScores.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExpectedScores.h; sourceTree = "<group>"; };
-		DC4C180F28B7E2EF008D4F09 /* ExpectedScores.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExpectedScores.cpp; sourceTree = "<group>"; };
 		DC567BCF286FA82300791F61 /* pcg_extras.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pcg_extras.hpp; sourceTree = "<group>"; };
 		DC567BD0286FA82300791F61 /* catch.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = catch.hpp; sourceTree = "<group>"; };
 		DC567BD1286FA82300791F61 /* pcg_random.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pcg_random.hpp; sourceTree = "<group>"; };
@@ -215,8 +211,6 @@
 		DC8BD37828BA84B700DBDAB5 /* expectedscores.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = expectedscores.dat; sourceTree = "<group>"; };
 		DC8BD37928BA865B00DBDAB5 /* Discarder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Discarder.h; sourceTree = "<group>"; };
 		DC8BD37A28BA870C00DBDAB5 /* Discarder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Discarder.cpp; sourceTree = "<group>"; };
-		DC8BD37C28BAC3AE00DBDAB5 /* BoardPosDiscarder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoardPosDiscarder.h; sourceTree = "<group>"; };
-		DC8BD37D28BAC46400DBDAB5 /* BoardPosDiscarder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BoardPosDiscarder.cpp; sourceTree = "<group>"; };
 		DC90EBAA28831A9E000D0379 /* SizedArrayTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SizedArrayTest.cpp; sourceTree = "<group>"; };
 		DC90EBAC2883237A000D0379 /* PlayerIndex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerIndex.h; sourceTree = "<group>"; };
 		DC90EBAD288327D7000D0379 /* DiscardDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscardDefs.h; sourceTree = "<group>"; };
@@ -403,12 +397,8 @@
 				DC90EBAD288327D7000D0379 /* DiscardDefs.h */,
 				DC567C32286FA94200791F61 /* DiscardTable.cpp */,
 				DC567C37286FA94200791F61 /* DiscardTable.h */,
-				DC4C180E28B7DEB5008D4F09 /* ExpectedScores.h */,
-				DC4C180F28B7E2EF008D4F09 /* ExpectedScores.cpp */,
 				DC8BD37928BA865B00DBDAB5 /* Discarder.h */,
 				DC8BD37A28BA870C00DBDAB5 /* Discarder.cpp */,
-				DC8BD37C28BAC3AE00DBDAB5 /* BoardPosDiscarder.h */,
-				DC8BD37D28BAC46400DBDAB5 /* BoardPosDiscarder.cpp */,
 			);
 			path = DiscardStrategy;
 			sourceTree = "<group>";
@@ -680,7 +670,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					DC21B10528A709DB00388116 = {
 						CreatedOnToolsVersion = 13.4;
@@ -762,9 +752,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC567C59286FA99400791F61 /* CardSplitter.cpp in Sources */,
-				DC8BD37E28BAC46400DBDAB5 /* BoardPosDiscarder.cpp in Sources */,
 				DC4C180D28B59503008D4F09 /* DiscardSimulator.cp in Sources */,
-				DC4C181028B7E2EF008D4F09 /* ExpectedScores.cpp in Sources */,
 				DC567C55286FA98800791F61 /* DiscardTable.cpp in Sources */,
 				DC567C61286FA9AD00791F61 /* Canonize.cpp in Sources */,
 				DC8BD37B28BA870C00DBDAB5 /* Discarder.cpp in Sources */,
@@ -840,6 +828,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 6X2P4HJBQW;
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
@@ -853,6 +842,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 6X2P4HJBQW;
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
@@ -895,6 +885,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -953,6 +944,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -976,6 +968,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 6X2P4HJBQW;
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
@@ -989,6 +982,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 6X2P4HJBQW;
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
@@ -1002,6 +996,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 6X2P4HJBQW;
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
@@ -1015,6 +1010,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 6X2P4HJBQW;
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
@@ -1028,6 +1024,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 6X2P4HJBQW;
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
@@ -1041,6 +1038,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 6X2P4HJBQW;
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
@@ -1054,6 +1052,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 6X2P4HJBQW;
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
@@ -1067,6 +1066,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 6X2P4HJBQW;
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
@@ -1079,7 +1079,9 @@
 		DC760D83286FAC3C002411B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 6X2P4HJBQW;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1089,7 +1091,9 @@
 		DC760D84286FAC3C002411B9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 6X2P4HJBQW;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1099,7 +1103,9 @@
 		DC760D9B286FC12C002411B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 6X2P4HJBQW;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1109,7 +1115,9 @@
 		DC760D9C286FC12C002411B9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 6X2P4HJBQW;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";

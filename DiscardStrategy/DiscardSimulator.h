@@ -1,8 +1,8 @@
 #ifndef DiscardSimulator_h
 #define DiscardSimulator_h
 
+#include "DiscardDefs.h"
 #include "DiscardTable.h"
-#include "ExpectedScores.h"
 #include "HandVsHand.h"
 #include "Spinlock.h"
 #include <array>
@@ -23,9 +23,6 @@ public:
    // Calculates the best response to the opponent's strategy. Return value is
    // the exploitability of the opponent's strategy in points.
    double best_response(DiscardTable& response) const noexcept;
-
-   // Calculates the expected scores against the opponent's strategy.
-   void expected_scores(ExpectedScores& results) const noexcept;
 
    // Load/save the simulation results from/to a file. Note: this doesn't
    // preserve the DiscardTable or HandVsHand data.
@@ -54,9 +51,6 @@ private:
       Spinlock lock;
       int count = 0;
       ActionResults results;
-
-      // Calculates the ExpectedScores based on the current data.
-      ExpectedScores::Scores expected_scores() const noexcept;
    };
    
    // Tracks the valid discard actions for a given hand and the results.

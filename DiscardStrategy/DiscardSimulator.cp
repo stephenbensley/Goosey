@@ -89,36 +89,6 @@ int16_t avg_mpoints(int sum_points, int count) noexcept
    return (1000l * sum_points + 500l) / count;
 }
 
-ExpectedScores::Scores
-DiscardSimulator::State::expected_scores() const noexcept
-{
-   ExpectedScores::Scores scores;
-   if (count == 0) { return scores; }
-
-   for (auto i = 0; i < num_discard_actions; ++i) {
-      auto& src = results[i];
-      auto& dst = scores[i];
-
-      dst.observer_play_mpoints = avg_mpoints(src.observer_play_points, count);
-      dst.observer_hand_mpoints = avg_mpoints(src.observer_hand_points, count);
-      dst.opponent_play_mpoints = avg_mpoints(src.opponent_play_points, count);
-      dst.opponent_hand_mpoints = avg_mpoints(src.opponent_hand_points, count);
-   }
-
-   return scores;
-}
-
-void DiscardSimulator::expected_scores(ExpectedScores& results) const noexcept
-{
-   results.clear();
-   for (auto& [key, entry] : entries_) {
-      results.insert(key, {
-         entry.dealer.expected_scores(),
-         entry.pone.expected_scores()
-      });
-   }
-}
-
 bool DiscardSimulator::load(const char* filename)
 {
    std::ifstream istrm(filename, std::ios::binary);
