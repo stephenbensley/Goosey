@@ -102,14 +102,14 @@ int gen_disc_dat(bool use_hvh)
 // during the show (i.e., ignoring points scored during card play).
 int gen_disc_net_hand_dat()
 {
-   return gen_disc_dat(false);
+   return gen_disc_dat(true);
 }
 
 // Generates the discard table that maximizes the expected net points scored
 // during the entire hand (i.e., including points scored during card play).
 int gen_disc_net_show_dat()
 {
-   return gen_disc_dat(true);
+   return gen_disc_dat(false);
 }
 
 // Generates the table of outcomes for all possible combinations of card play
@@ -128,6 +128,7 @@ int gen_score_log_dat()
 {
    const int target_hands = 1'000'000;
 
+   // Use the strongest player strategy for the matches.
    TableDiscarder discarder(disc_net_hand_dat);
    MinimaxPlayer player0(discarder), player1(discarder);
    // Wrap one of the players in a score logger.
@@ -158,7 +159,8 @@ int gen_score_log_dat()
 int show_usage()
 {
    std::cout
-      << "Usage: datefilegen <filename>\n"
+      << "Usage: gen_file <filename>\n"
+      << "\n"
       << "Valid filenames:\n"
       << "   " << board_value_csv << "\n"
       << "   " << board_value_dat << "\n"
@@ -166,6 +168,8 @@ int show_usage()
       << "   " << disc_net_show_dat << "\n"
       << "   " << hand_vs_hand_dat << "\n"
       << "   " << score_log_dat << "\n"
+      << "\n"
+      << "Example: gen_file disc_net_hand.dat\n"
       << std::endl;
 
    return -1;

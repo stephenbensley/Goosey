@@ -66,11 +66,11 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "disc_net_show.dat"
-            isEnabled = "NO">
+            isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "hand_vs_hand.dat"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "score_log.dat"

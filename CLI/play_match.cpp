@@ -4,8 +4,8 @@
 #include <string_view>
 #include "clidefs.h"
 #include "Discarder.h"
-#include "Match.h"
 #include "GreedyPlayer.h"
+#include "Match.h"
 #include "MinimaxPlayer.h"
 #include "RandomPlayer.h"
 
@@ -77,17 +77,21 @@ int show_usage()
 {
    std::cout
       << "Usage: play_match <player 1> <player 2> <number of games>\n"
+      << "\n"
       << "Players are specified by two characters, the first indicating the discard\n"
       << "strategy and the second the card play strategy.\n"
+      << "\n"
       << "Discard strategies:\n"
       << "    r - Random\n"
       << "    g - Greedy\n"
       << "    s - Maximize expected net points scored during the show only\n"
       << "    h - Maximize expected net points scored during the entire hand\n"
+      << "\n"
       << "Card play strategies:\n"
       << "    r - Random\n"
       << "    g - Greedy\n"
       << "    m - Monte Carlo minimax\n"
+      << "\n"
       << "Example: play_match gg hm 1000\n"
       << std::endl;
 
