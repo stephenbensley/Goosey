@@ -25,7 +25,7 @@ public:
    static const ScoreMap& get();
 
 private:
-   static constexpr char filename[] = "cardplayscores.dat";
+   static constexpr char filename[] = "card_play_scores.dat";
 
    // Used during initialization to traverse the tree of all possible series.
    struct ScoreNode
