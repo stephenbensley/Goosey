@@ -5,11 +5,12 @@ TEST_CASE("Deck::shuffle", "[deck]")
 {
    Deck deck;
 
-   const int num_rounds = 1000;
+   // Collect statistics for a large number of hands of cribbage.
+   const auto num_hands = 1000;
    std::array<int, max_card_rank + 1> by_rank{};
    std::array<int, num_card_suits + 1> by_suit{};
 
-   for (auto i = 0; i < num_rounds; ++i) {
+   for (auto i = 0; i < num_hands; ++i) {
       deck.shuffle();
       for (auto j = 0; j < num_cards_dealt_per_round; ++j)
       {
@@ -19,11 +20,13 @@ TEST_CASE("Deck::shuffle", "[deck]")
       }
    }
 
-   const int num_cards_dealt = num_rounds * num_cards_dealt_per_round;
-   const int expected_per_rank = num_cards_dealt / num_card_ranks;
-   const int expected_per_suit = num_cards_dealt / num_card_suits;
-   const int rank_interval = expected_per_rank / 10;
-   const int suit_interval = expected_per_suit / 10;
+   const auto num_cards_dealt = num_hands * num_cards_dealt_per_round;
+   const auto expected_per_rank = num_cards_dealt / num_card_ranks;
+   const auto expected_per_suit = num_cards_dealt / num_card_suits;
+   
+   // Make sure the actual counts are within +/- 10% of the expected counts.
+   const auto rank_interval = expected_per_rank / 10;
+   const auto suit_interval = expected_per_suit / 10;
 
    for (auto i = min_card_rank; i <= max_card_rank; ++i) {
       REQUIRE(by_rank[i] > expected_per_rank - rank_interval);

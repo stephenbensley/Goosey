@@ -20,7 +20,7 @@ TEST_CASE("CardPlayScore::play_rank", "[score]")
    std::vector<Card> cards;
    from_string(cards_sz, cards);
    CardPlayScore score;
-   int points = 0;
+   auto points = 0;
    for (auto c : cards) {
       points = score.update_and_score(c.rank());
    }

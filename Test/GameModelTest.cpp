@@ -1,17 +1,26 @@
 #include "Catch.hpp"
 #include "GameModel.h"
 
+// Represents a single card play.
 struct TestPlay
 {
+   // Player playing the card
    PlayerIndex player;
+   // Card played
    const char* card_sz;
+   // New count
    int count;
+   // Points scored
    int points;
+   // New score for the player
    int score;
 };
 
 TEST_CASE("GameModel")
 {
+   // This sample card game was lifted from the Wikipedia article on the rules
+   // of Cribbage.
+
    Card starter;
    from_string("5H", starter);
    std::vector<Card> crib_vec;
@@ -31,7 +40,7 @@ TEST_CASE("GameModel")
       {0, "4S", 10, 0, 6},
       {1, "4H", 14, 3, 3}
    };
-   const int num_plays = sizeof(plays)/sizeof(plays[0]);
+   const auto num_plays = sizeof(plays)/sizeof(plays[0]);
 
    GameModel model(0);
 

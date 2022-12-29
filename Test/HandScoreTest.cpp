@@ -6,14 +6,16 @@
 
 TEST_CASE("HandScore", "[score]")
 {
-   const int num_iterations = 1000;
-   int num_passsed = 0;
+   // Veryify randomly generated hands are scored the same using either
+   // manual scoring or cachec scoring.
+   const auto num_hands = 1000;
+   auto num_passsed = 0;
 
    Deck deck;
    CardsShown hand;
    Card starter;
 
-   for (auto j = 0; j < num_iterations; ++j) {
+   for (auto j = 0; j < num_hands; ++j) {
       deck.shuffle();
       std::generate(hand.begin(),
                     hand.end(),
@@ -28,5 +30,5 @@ TEST_CASE("HandScore", "[score]")
       }
    }
 
-   REQUIRE(num_iterations == num_passsed);
+   REQUIRE(num_hands == num_passsed);
 }
