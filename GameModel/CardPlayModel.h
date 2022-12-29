@@ -1,5 +1,12 @@
-#ifndef CardPlay_h
-#define CardPlay_h
+//
+// Copyright 2022 Stephen E. Bensley
+//
+// This file is licensed under the MIT License. You may obtain a copy of the
+// license at https://github.com/stephenbensley/Tensity/blob/main/LICENSE.
+//
+
+#ifndef CardPlayModel_h
+#define CardPlayModel_h
 
 #include "Card.h"
 #include "CardPlayScore.h"
@@ -83,4 +90,4 @@ inline void CardPlayModel::start_new_series() noexcept
    go_announced_ = false;
 }
 
-#endif /* CardPlay_h */
+#endif /* CardPlayModel_h */

@@ -1,3 +1,10 @@
+//
+// Copyright 2022 Stephen E. Bensley
+//
+// This file is licensed under the MIT License. You may obtain a copy of the
+// license at https://github.com/stephenbensley/Tensity/blob/main/LICENSE.
+//
+
 #ifndef ScoreLog_h
 #define ScoreLog_h
 
@@ -6,7 +13,7 @@
 #include <mutex>
 #include <vector>
 
-// Keeps a record of the points scored in a single round. Consecutive points
+// Keeps a record of the points scored in a single hand. Consecutive points
 // scored by the same player are coalesced into a single entry.
 class ScoreRecord
 {
@@ -53,7 +60,7 @@ inline int ScoreRecord::size() const noexcept
    return empty() ? 0 : (pos_ + 1);
 }
 
-// Keeps a log of the scores across multiple rounds.
+// Keeps a log of the scores across multiple hands.
 class ScoreLog
 {
 public:

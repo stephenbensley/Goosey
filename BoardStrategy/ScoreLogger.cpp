@@ -1,7 +1,13 @@
+//
+// Copyright 2022 Stephen E. Bensley
+//
+// This file is licensed under the MIT License. You may obtain a copy of the
+// license at https://github.com/stephenbensley/Tensity/blob/main/LICENSE.
+//
+
 #include "ScoreLogger.h"
 
-ScoreLogger::ScoreLogger(const Player& observed,
-                         std::shared_ptr<ScoreLog> log)
+ScoreLogger::ScoreLogger(const Player& observed, std::shared_ptr<ScoreLog> log)
 : observed_(observed.clone()),
   log_(log)
 {
