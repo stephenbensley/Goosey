@@ -90,7 +90,7 @@
 		DC8E5027295CDF640071E95C /* libPlayers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC760D52286FAB56002411B9 /* libPlayers.a */; };
 		DC8E502D295D00860071E95C /* libPlayers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC760D52286FAB56002411B9 /* libPlayers.a */; };
 		DC8E5030295D00920071E95C /* libBoardStrategy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC21B10628A709DB00388116 /* libBoardStrategy.a */; };
-		DC8E503B295D2E930071E95C /* boardvalue.csv in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC8E5035295D2DC10071E95C /* boardvalue.csv */; };
+		DC8E503B295D2E930071E95C /* board_value.csv in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC8E5035295D2DC10071E95C /* board_value.csv */; };
 		DC8E503C295D2E9A0071E95C /* board_value.dat in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC21B11B28AC0A1C00388116 /* board_value.dat */; };
 		DC8E503D295D2EA00071E95C /* disc_net_hand.dat in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCDBD4FC288DBB900055088B /* disc_net_hand.dat */; };
 		DC8E503E295D2EAA0071E95C /* disc_net_show.dat in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC8E5034295D2D8E0071E95C /* disc_net_show.dat */; };
@@ -231,7 +231,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				DC8E503B295D2E930071E95C /* boardvalue.csv in CopyFiles */,
+				DC8E503B295D2E930071E95C /* board_value.csv in CopyFiles */,
 				DC8E503C295D2E9A0071E95C /* board_value.dat in CopyFiles */,
 				DC8E503D295D2EA00071E95C /* disc_net_hand.dat in CopyFiles */,
 				DC8E503E295D2EAA0071E95C /* disc_net_show.dat in CopyFiles */,
@@ -324,7 +324,7 @@
 		DC8E5004295B69F10071E95C /* gen_file.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = gen_file.cpp; sourceTree = "<group>"; };
 		DC8E501D295CD1E60071E95C /* clidefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = clidefs.h; sourceTree = "<group>"; };
 		DC8E5034295D2D8E0071E95C /* disc_net_show.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = disc_net_show.dat; sourceTree = "<group>"; };
-		DC8E5035295D2DC10071E95C /* boardvalue.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = boardvalue.csv; sourceTree = "<group>"; };
+		DC8E5035295D2DC10071E95C /* board_value.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = board_value.csv; sourceTree = "<group>"; };
 		DC90EBAA28831A9E000D0379 /* SizedArrayTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SizedArrayTest.cpp; sourceTree = "<group>"; };
 		DC90EBAC2883237A000D0379 /* PlayerIndex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerIndex.h; sourceTree = "<group>"; };
 		DC90EBAD288327D7000D0379 /* DiscardDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscardDefs.h; sourceTree = "<group>"; };
@@ -596,7 +596,7 @@
 		DC760DA2286FC33F002411B9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				DC8E5035295D2DC10071E95C /* boardvalue.csv */,
+				DC8E5035295D2DC10071E95C /* board_value.csv */,
 				DC21B11B28AC0A1C00388116 /* board_value.dat */,
 				DCDBD4FC288DBB900055088B /* disc_net_hand.dat */,
 				DC8E5034295D2D8E0071E95C /* disc_net_show.dat */,
