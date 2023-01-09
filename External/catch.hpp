@@ -10117,8 +10117,8 @@ namespace {
         {
             CONSOLE_SCREEN_BUFFER_INFO csbiInfo;
             GetConsoleScreenBufferInfo( stdoutHandle, &csbiInfo );
-            originalForegroundAttributes = csbiInfo.wAttributes & ~( BACKGROUND_GREEN | BACKGROUND_RED | BACKGROUND_BLUE | BACKGROUND_INTENSITY );
-            originalBackgroundAttributes = csbiInfo.wAttributes & ~( FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_INTENSITY );
+            originalForegroundAttributes = csbiInfo.wAttributes & ~( BACKGROUND_GREEN | BACKGROUND_RED | BACKGROUND_BLUE | BACKGROUND_INGoosey );
+            originalBackgroundAttributes = csbiInfo.wAttributes & ~( FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_INGoosey );
         }
 
         void use( Colour::Code _colourCode ) override {
@@ -10132,11 +10132,11 @@ namespace {
                 case Colour::Yellow:    return setTextAttribute( FOREGROUND_RED | FOREGROUND_GREEN );
                 case Colour::Grey:      return setTextAttribute( 0 );
 
-                case Colour::LightGrey:     return setTextAttribute( FOREGROUND_INTENSITY );
-                case Colour::BrightRed:     return setTextAttribute( FOREGROUND_INTENSITY | FOREGROUND_RED );
-                case Colour::BrightGreen:   return setTextAttribute( FOREGROUND_INTENSITY | FOREGROUND_GREEN );
-                case Colour::BrightWhite:   return setTextAttribute( FOREGROUND_INTENSITY | FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_BLUE );
-                case Colour::BrightYellow:  return setTextAttribute( FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN );
+                case Colour::LightGrey:     return setTextAttribute( FOREGROUND_INGoosey );
+                case Colour::BrightRed:     return setTextAttribute( FOREGROUND_INGoosey | FOREGROUND_RED );
+                case Colour::BrightGreen:   return setTextAttribute( FOREGROUND_INGoosey | FOREGROUND_GREEN );
+                case Colour::BrightWhite:   return setTextAttribute( FOREGROUND_INGoosey | FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_BLUE );
+                case Colour::BrightYellow:  return setTextAttribute( FOREGROUND_INGoosey | FOREGROUND_RED | FOREGROUND_GREEN );
 
                 case Colour::Bright: CATCH_INTERNAL_ERROR( "not a colour" );
 
